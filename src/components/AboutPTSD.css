@@ -1,1 +1,14 @@
-
+.about-ptsd-container {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-ptsd-container h1, .about-ptsd-container h2 {
+    color: #006a6a;
+  }
+  
+  .about-ptsd-container p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
