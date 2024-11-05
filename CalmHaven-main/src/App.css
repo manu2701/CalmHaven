@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+.logo{
+  display:flex;
+  align-items: center;
+  color: white;
+}
+.logo img{
+  width:40px;
+  margin-right:10px;
+}
+.logo p{
+  font-size: small;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.navbar {
+  background-color: #004C4C;
+  padding: 10px 20px;
+  align-items: center;
+  width:1550px;
+  display:flex;
+  justify-content:space-between;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: medium;  
+  position:fixed;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display:flex;
+}
+
+.navbar ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
