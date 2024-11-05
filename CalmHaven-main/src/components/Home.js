@@ -49,24 +49,24 @@ function Home() {
         <p>Key Features</p>
         <div className="features">
         <div className="feat1">
-          <img src={awarness}  alt="Emotional Awarness" className="eawarness"/>
+          <img src={awarness}  alt="Emotional Awarness" className="icon"/>
           <br></br>
           Emotional Awareness
         </div>
         <div className="feat2">
-          <img src={copingstrat}  alt="Coping Strategy" className="copingstrategy"/><br></br>
+          <img src={copingstrat}  alt="Coping Strategy" className="icon"/><br></br>
           Personalized Coping Strategies
         </div>
         <div className="feat3">
-          <img src={guidance}  alt="Resource Guidance" className="resourceguide"/><br></br>
+          <img src={guidance}  alt="Resource Guidance" className="icon"/><br></br>
           Resource Guidance
         </div>
         <div className="feat4">
-          <img src={availability}  alt="Available" className="availablity247"/><br></br>
+          <img src={availability}  alt="Available" className="icon"/><br></br>
           24/7 Availability
         </div>
         <div className="feat5">
-          <img src={confidential}  alt="Confidential Convo" className="confidconvo"/><br></br>
+          <img src={confidential}  alt="Confidential Convo" className="icon"/><br></br>
           Confidential Conversations
         </div>
         </div>
