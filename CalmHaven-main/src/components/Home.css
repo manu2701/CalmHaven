@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('/src/assets/bg/home_background.jpg'); 
+    background-image: url('/src/assets/bg/home_background.png'); 
     background-size: cover;
     background-position: center;
   }
@@ -103,10 +103,9 @@
 }
 
 .simple-technique p{
-  color: black;
   font-size: 25px;
   font-weight: 600;
-  margin-top: 50px;
+  padding-top: 50px;
 }
 .list-tech ol li{
   padding-left: 500px;
@@ -117,9 +116,11 @@
 }
 .simple-technique{
   background-image: url();
-  /* height: 50vh; */
+  background-color: #003030;
   background-size: cover;
   background-position: center;
+  color: white;
+  padding-bottom: 50px;
 }
 .icon{
   transition: transform 0.3s ease;

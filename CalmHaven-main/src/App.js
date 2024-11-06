@@ -18,7 +18,7 @@ function App() {
           <ul>
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/about-ptsd">ABOUT PTSD</Link></li>
-            <li><Link to="/chatbot">CHATBOT</Link></li>
+            <li><Link to="/consult">CONSULT</Link></li>
             <li><Link to="/stories">STORIES OF STRENGTH</Link></li>
             <li><Link to="/resources">RESOURCES</Link></li>
             <li><Link to="/todo-list">TO-DO LIST</Link></li>
