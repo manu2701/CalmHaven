@@ -105,22 +105,21 @@
 .simple-technique p{
   font-size: 25px;
   font-weight: 600;
-  padding-top: 50px;
+  padding-top: 70px;
 }
 .list-tech ol li{
-  padding-left: 500px;
-  padding-right: 500px;
+  padding-left: 400px;
+  padding-right: 400px;
   text-align: left;
   margin-top: 30px;
   font-size: large;
 }
 .simple-technique{
-  background-image: url();
   background-color: #003030;
   background-size: cover;
   background-position: center;
   color: white;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
 }
 .icon{
   transition: transform 0.3s ease;

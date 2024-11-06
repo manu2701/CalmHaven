@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import AboutPTSD from "./components/AboutPTSD";
 import Stories from "./components/Stories";
+import Consult from "./components/Consult";
 import "./App.css";
 import logo from ".//assets/logo/logo_color5.png" ; 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about-ptsd" element={<AboutPTSD />} />
           <Route path="/stories" element={<Stories />} />
+          <Route path="/consult" element={<Consult />} />
         </Routes>
       </div>
     </Router>
