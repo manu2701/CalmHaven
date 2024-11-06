@@ -3,7 +3,9 @@ import './Consult.css';
 
 function Consult(){
     return(
-        <div> ebhbefhBWKBWBWB</div>
+        <div className="consult-page">
+            <div className="consult-head">Top Post traumatic stress disorder ptsd Doctors in India</div>
+        </div>
     );
 }
 export default Consult;
