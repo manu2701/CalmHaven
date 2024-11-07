@@ -41,9 +41,9 @@ function Footer() {
           <h3>Contact Information</h3>
           <p>Email: support@calmhaven.com</p>
           <p>Phone: +91-1234567890</p>
-          {/* <div className="social-links">
+          <div className="social-links">
             <a href="/fb"><img src={fb}  alt="fb" className="mediaicon"/></a>  <a href="/twitter"><img src={insta}  alt="insta" className="mediaicon"/></a>  <a href="/linkedin"><img src={lin}  alt="ledin" className="mediaicon"/></a>
-          </div> */}
+          </div>
         </div>
 
         <div className="footer-section">

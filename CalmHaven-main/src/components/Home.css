@@ -103,8 +103,8 @@
 }
 
 .simple-technique p{
-  font-size: 25px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700;
   padding-top: 70px;
   letter-spacing: 0.5px;
 }
@@ -121,7 +121,7 @@
   background-size: cover;
   background-position: center;
   color: white;
-  padding-bottom: 70px;
+  padding-bottom: 80px;
 }
 .icon{
   transition: transform 0.3s ease;
