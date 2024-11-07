@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('/src/assets/bg/home_background.png'); 
+    background-image: url('/src/assets/bg/home_bg.jpg'); 
     background-size: cover;
     background-position: center;
   }
@@ -14,6 +14,7 @@
     align-content: flex-start;
     text-align: center;
     color: white;
+    margin-left: 40px;
   }
   .q1{
     padding-top: 150px;
@@ -27,7 +28,7 @@
     text-align: left;
   }
   .divquote{
-    width: 500px;
+    width: 700px;
   }
     
   .buttons {

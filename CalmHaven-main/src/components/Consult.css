@@ -1,10 +1,63 @@
 .consult-page {
-    padding: 20px;
-    background-color: #f9f9f9;
+    padding-top: 60px;
 }
 
 .consult-head {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
+    background-color: #b6c5c5;
+    font-size: 20px;
+    font-weight:600;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    color: #004C4C;
+    text-align: start;
+    padding-left: 80px;
 }
+.container{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+.phone-no{
+    background-color: #004141;
+    color: white;
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 10px;
+}
+.container p{
+    color: #004141;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
+  }
+  
+  .card {
+    width: 382px;
+    height: 272px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .card:hover {
+    transform: translateY(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }

@@ -13,8 +13,7 @@ function Home() {
       <div className="quote-page">
       <div className="quote-section">
         <div className="q1">
-          <p>
-          "YOU ARE STRONGER THAN YOU THINK.</p> <p>YOU HAVE GOTTEN THROUGH EVERY BAD DAY</p><p>IN YOUR LIFE, AND YOU ARE UNDEFEATED."</p>
+          <p>"YOU ARE STRONGER THAN YOU THINK.</p> <p>YOU HAVE GOTTEN THROUGH EVERY </p><p>BAD DAY IN YOUR LIFE,</p><p> AND YOU ARE UNDEFEATED."</p>
         </div>
         <div className="divquote"></div>
       </div>

@@ -6,6 +6,7 @@ import Stories from "./components/Stories";
 import Consult from "./components/Consult";
 import "./App.css";
 import logo from ".//assets/logo/logo_color5.png" ; 
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/stories" element={<Stories />} />
           <Route path="/consult" element={<Consult />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
