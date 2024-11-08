@@ -15,7 +15,7 @@
   margin-bottom: 5px;
 }
 
-p{
+.login-page p{
   color: white;
   font-size: larger;
   font-weight: 600;
@@ -79,10 +79,10 @@ p{
 }
 
 
-.login-container button {
+ .button-container button {
   margin-left: 120px;
   margin-right: 120px;
-  padding: 7px;
+  padding: 10px 20px 10px 20px;
   font-size: 16px;
   font-weight: 500;
   background-color: #00B7C3;
@@ -93,7 +93,7 @@ p{
   transition: background-color 0.3s;
 }
 
-.login-container button:hover {
+.button-container button:hover {
   background-color: #45a049;
 }
 
@@ -112,21 +112,24 @@ p{
 }
 
 .google-button {
+  margin-left: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 100%; */
-  background-color: #4285f4;
+  padding: 10px 20px 10px 20px;
+  width: 70%;
+  background-color: #00b6c300;
+  border: 1px solid #ccc;
   color: white;
   font-size: 16px;
-  border: none;
-  border-radius: 10px;
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .google-button:hover {
-  background-color: #357ae8;
+  background-color: #000000;
+  border: none;
 }
 
 .google-icon {

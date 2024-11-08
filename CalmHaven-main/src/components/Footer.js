@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import fb from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/icons/fbicon.svg";
-import insta from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/icons/instaicon.svg";
-import lin from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/icons/linkedin-icon.png";
+import fb from "../assets/icons/fbicon.svg";
+import insta from "../assets/icons/instaicon.svg";
+import lin from "../assets/icons/linkedin-icon.png";
 function Footer() {
   return (
     <footer style={{ backgroundColor: '#004C4C', color: 'white', padding: '20px', marginTop: '30px' }}>

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Login.css";
-import logo from "../assets/logo/logo_color5.png"; // Adjust the path as per your folder structure
+import logo from "../assets/logo/logo_color5.png"; 
+import googleicon from "../assets/icons/google_icon.png";
 
 function handleGoogleLogin() {
   alert("Google Login Clicked");
@@ -20,12 +21,12 @@ function Login() {
           <label>Password:</label>
           <input type="password" placeholder="Enter your password" />
           
-          <button type="submit">Login</button>
+          <div className="button-container"><button type="submit">Login</button></div>
         </form>
         <div className="google-login">
           <button onClick={handleGoogleLogin} className="google-button">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              src={googleicon}
               alt="Google Logo"
               className="google-icon"
             />

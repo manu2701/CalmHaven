@@ -2,12 +2,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import './Home.css';
-import ptsdoverview from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/ptsd-overview.png";
-import availability from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/icons/availabilty_icon.png";
-import copingstrat from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/icons/personalization_icon.png";
-import awarness from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/icons/awarness_icon.png";
-import guidance from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/icons/resource_guidance_icon.png";
-import confidential from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/icons/confidential_icon.png";
+import ptsdoverview from "../assets/ptsd-overview.png";
+import availability from "../assets/icons/availabilty_icon.png";
+import copingstrat from "../assets/icons/personalization_icon.png";
+import awarness from "../assets/icons/awarness_icon.png";
+import guidance from "../assets/icons/resource_guidance_icon.png";
+import confidential from "../assets/icons/confidential_icon.png";
 
 function Home() {
   const navigate = useNavigate(); // Initialize navigate function

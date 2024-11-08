@@ -1,6 +1,6 @@
 import React from "react";
 import './AboutPTSD.css';
-import banner from "C:/Users/manus/Downloads/CalmHaven-main/CalmHaven-main/src/assets/bg/about-banner.png";
+import banner from "../assets/bg/about-banner.png";
 
 function AboutPTSD() {
   return (
