@@ -2,20 +2,27 @@
   text-align: center;
 }
 
-.logo{
-  display:flex;
+.logo {
+  display: flex;
   align-items: center;
+  justify-content: center; 
   color: white;
 }
-.logo img{
-  width:40px;
-  margin-right:10px;
+
+.logo img {
+  width: 40px;
+  margin-right: 10px;
 }
-.logo p{
-  font-size: small;
+
+.logo p {
+  font-size:medium;
   font-weight: 600;
   letter-spacing: 1px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
 .navbar {
   background-color: #004C4C;
   padding: 10px 20px;

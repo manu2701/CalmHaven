@@ -1,43 +1,43 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import './Login.css';
+import React from "react";
+import "./Login.css";
+import logo from "../assets/logo/logo_color5.png"; // Adjust the path as per your folder structure
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+function handleGoogleLogin() {
+  alert("Google Login Clicked");
+}
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // Add authentication logic here
-    navigate('/'); // Navigate to homepage after successful login
-  };
-
+function Login() {
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p className="message">
-        Don’t have an account? <Link to="/signup">Sign Up</Link>
-      </p>
+    <div className="login-page">
+      <img src={logo} alt="CalmHaven Logo" className="logo-outside" />
+      <p>CALMHAVEN</p>
+      <div className="login-container">
+        <h2>Login</h2>
+        <form>
+          <label>Email:</label>
+          <input type="email" placeholder="Enter your email" />
+          
+          <label>Password:</label>
+          <input type="password" placeholder="Enter your password" />
+          
+          <button type="submit">Login</button>
+        </form>
+        <div className="google-login">
+          <button onClick={handleGoogleLogin} className="google-button">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              alt="Google Logo"
+              className="google-icon"
+            />
+            Login with Google
+          </button>
+        </div>
+        <div className="message">
+          Don't have an account? <a href="/signup">Sign Up</a>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default Login;

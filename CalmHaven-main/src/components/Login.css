@@ -1,70 +1,137 @@
-/* Center the login container on the page */
+/* Center the login page content */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('/src/assets/bg/login_background.svg');
+  background-size: cover;
+  background-position: center;
+}
+
+.logo-outside {
+  width: 100px; /* Adjust size as needed */
+  margin-bottom: 5px;
+}
+
+p{
+  color: white;
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 60px;
+  letter-spacing: 3px;
+}
+
+/* Style the login container */
 .login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .login-container h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .login-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .login-container label {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
-    text-align: left;
-  }
-  
-  .login-container input[type="email"],
-  .login-container input[type="password"] {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .login-container input[type="email"]:focus,
-  .login-container input[type="password"]:focus {
-    border-color: #66afe9;
-    outline: none;
-    box-shadow: 0px 0px 8px rgba(102, 175, 233, 0.6);
-  }
-  
-  .login-container button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .login-container button:hover {
-    background-color: #45a049;
-  }
-  
-  /* Optional: add a message style */
-  .login-container .message {
-    color: #777;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  background-color: #00000087;
+  border-radius: 30px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h2 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container label {
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus {
+  border-color: #66afe9;
+  outline: none;
+  box-shadow: 0px 0px 8px rgba(102, 175, 233, 0.6);
+}
+
+.login-container input[type="email"]::placeholder,
+.login-container input[type="password"]::placeholder {
+  color: #aaa;
+  font-family: 'Poppins';
+  font-size: 14px;
+  opacity: 1; 
+}
+
+
+.login-container button {
+  margin-left: 120px;
+  margin-right: 120px;
+  padding: 7px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #00B7C3;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+  background-color: #45a049;
+}
+
+.login-container .message {
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login-container .message a{
+  color: #00B7C3;
+}
+
+.google-login {
+  margin-top: 20px;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
+  background-color: #4285f4;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.google-button:hover {
+  background-color: #357ae8;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+

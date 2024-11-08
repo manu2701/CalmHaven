@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './SignUp.css';
+import logo from "../assets/logo/logo_color5.png"; 
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -20,12 +21,16 @@ const SignUp = () => {
   };
 
   return (
+    <div className="signup-page">
+    <img src={logo} alt="CalmHaven Logo" className="signup-outside" />
+    <p>CALMHAVEN</p>
     <div className="signup-container">
-      <h2>Sign Up</h2>
+      <h2>SIGN UP</h2>
       <form onSubmit={handleSignUp}>
         <label>Name:</label>
         <input
           type="text"
+          placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -33,6 +38,7 @@ const SignUp = () => {
         <label>Email:</label>
         <input
           type="email"
+          placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -40,6 +46,7 @@ const SignUp = () => {
         <label>Password:</label>
         <input
           type="password"
+          placeholder="Set a password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -47,6 +54,7 @@ const SignUp = () => {
         <label>Confirm Password:</label>
         <input
           type="password"
+          placeholder="Re-enter the password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
@@ -56,6 +64,7 @@ const SignUp = () => {
       <p className="message">
         Already have an account? <Link to="/login">Login</Link>
       </p>
+    </div>
     </div>
   );
 };
