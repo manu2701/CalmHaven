@@ -77,7 +77,12 @@
   font-size: 14px;
   opacity: 1; 
 }
-
+.login-container .error-message{
+  color: red;
+  font-size: small;
+  margin-bottom: 5px;
+  letter-spacing: 0px;
+}
 
  .button-container button {
   margin-left: 120px;
@@ -129,7 +134,7 @@
 
 .google-button:hover {
   background-color: #000000;
-  border: none;
+  border: 1px solid #000000;
 }
 
 .google-icon {
@@ -137,4 +142,7 @@
   height: 20px;
   margin-right: 10px;
 }
+
+
+
 
