@@ -13,8 +13,9 @@
     padding-left: 80px;
 }
 .container{
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 100px;
+    margin-right: 100px;
+
 }
 .phone-no{
     background-color: #004141;
@@ -27,6 +28,12 @@
     border-radius: 10px;
 }
 .container p{
+    color: #004141;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: left;
+}
+.doct-head{
     color: #004141;
     font-size: 15px;
     font-weight: 500;
@@ -41,30 +48,88 @@
 
 .card-container {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
     align-items: center;
-    height: 50vh;
+    height:auto;
     position: relative;
     z-index: 1;
   }
   
   .card {
-    width: 382px;
-    height: 272px;
+    width: 400px;
+    height: 262px;
+    padding-left:20px;
+    padding-right: 10px;
+    padding-top: 20px;
     background-color: #f5f5f5;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    font-size: 2rem;
     color: rgba(0, 0, 0, 0.7);
     z-index: 1;
+  }
+  .info-doct{
+    display: flex;
+    align-items: flex-start;
   }
   
   .card:hover {
     transform: translateY(10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
   }
+
+
+  .doctor-image {
+    width: 100px;
+    height: 110px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-right: 8px;
+}
+
+.doctor-info {
+    flex: 1;
+    text-align: left;
+}
+hr{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-top: 1px solid rgb(219, 219, 219);
+}
+
+.doctor-name {
+    font-size:medium;
+    font-weight: bold;
+    color: #004C4C;
+    text-align: left;
+}
+
+.doctor-title,
+.doctor-specialty {
+    font-size:smaller;
+    color: #555;
+}
+
+.view-profile {
+    color: #0066cc;
+    text-decoration: none;
+    display: inline-block;
+    font-size: small;
+}
+
+.appointment-button {
+    padding: 10px 20px;
+    background-color: #004C4C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size:small;
+    cursor: pointer;
+}
+
+.appointment-button:hover {
+    background-color: #006666;
+}
