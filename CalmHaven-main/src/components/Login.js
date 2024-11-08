@@ -37,7 +37,7 @@ function Login() {
       <img src={logo} alt="CalmHaven Logo" className="logo-outside" />
       <p>CALMHAVEN</p>
       <div className="login-container">
-        <h2>Login</h2>
+        <h2>LOGIN</h2>
         <form onSubmit={handleLogin}>
           <label>Email:</label>
           <input 

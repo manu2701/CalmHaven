@@ -81,7 +81,7 @@
   color: red;
   font-size: small;
   margin-bottom: 5px;
-  letter-spacing: 0px;
+  letter-spacing: 0.5px;
 }
 
  .button-container button {

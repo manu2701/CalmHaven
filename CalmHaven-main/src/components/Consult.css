@@ -34,12 +34,18 @@
     margin-top: 40px;
     margin-left: 10px;
 }
+.navbar {
+    position: relative;
+    z-index: 2; /* Set higher z-index for navbar */
+}
 
 .card-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 50vh;
+    position: relative;
+    z-index: 1;
   }
   
   .card {
@@ -54,6 +60,7 @@
     align-items: center;
     font-size: 2rem;
     color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
   }
   
   .card:hover {
