@@ -40,7 +40,7 @@
 
   .btn {
     padding: 10px 30px;
-    background-color: #006a6a;
+    background-color: #004C4C;
     color: white;
     border: none;
     border-radius: 50px;
@@ -51,7 +51,7 @@
   }
   
   .btn:hover {
-    background-color: #004C4C;
+    background-color: #003030;
   }
   .about-ptsd p{
     height: auto;
