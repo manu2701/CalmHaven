@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './SignUp.css';
-import logo from "../assets/logo/logo_color5.png"; 
+import logo from "../assets/logo/logo_color3.png"; 
 
 const SignUp = () => {
   const [name, setName] = useState('');
