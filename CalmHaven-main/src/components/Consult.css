@@ -180,4 +180,5 @@ hr{
     border: none;
     background-color: #003030;
     color: white;
+    cursor: pointer;
 }
