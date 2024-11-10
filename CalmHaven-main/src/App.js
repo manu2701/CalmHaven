@@ -9,6 +9,7 @@ import SignUp from "./components/SignUp";
 import "./App.css";
 import logo from "./assets/logo/logo_color5.png";
 import Footer from "./components/Footer";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   const location = useLocation();
@@ -44,7 +45,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
-      
+      <Chatbot />
       {/* Only show footer if not on login or signup pages */}
       {!isAuthPage && <Footer />}
     </div>
