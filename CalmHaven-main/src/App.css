@@ -40,6 +40,8 @@
 .navbar ul {
   list-style-type: none;
   display:flex;
+  align-items: center;
+  margin-right: 30px;
 }
 
 .navbar ul li {

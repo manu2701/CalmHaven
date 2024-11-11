@@ -6,6 +6,7 @@ import Stories from "./components/Stories";
 import Consult from "./components/Consult";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Profile from "./components/Profile";
 import "./App.css";
 import logo from "./assets/logo/logo_color5.png";
 import profile_icon from "./assets/icons/profile_icon.png"
@@ -34,7 +35,7 @@ function App() {
             <li><Link to="/stories">STORIES OF STRENGTH</Link></li>
             <li><Link to="/resources">RESOURCES</Link></li>
             <li><Link to="/todo-list">TO-DO LIST</Link></li>
-            <li><Link to="/profile"><img src={profile_icon} alt="Profile-icon" className="profile" /></Link></li>
+            <li><Link to="/profile"><img src={profile_icon} alt="Profile-icon" className="profile" onClick={toggleChat} /></Link></li>
           </ul>
         </nav>
       )}
@@ -46,6 +47,7 @@ function App() {
         <Route path="/consult" element={<Consult />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Chatbot />
       {/* Only show footer if not on login or signup pages */}
