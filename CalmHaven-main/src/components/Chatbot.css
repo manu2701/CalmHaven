@@ -6,13 +6,17 @@
 }
 
 .chat-button {
-    background-color: #007bff;
+    background-color: #ffffff;
     color: white;
     border: none;
-    padding: 15px;
+    padding: 5px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
+}
+.chat-bot-icon{
+    width: 70px;
+    height: 60px;
 }
 
 .chat-window {

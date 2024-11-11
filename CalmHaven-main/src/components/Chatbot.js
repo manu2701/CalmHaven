@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Chatbot.css'; // Import the CSS file for styling
+import chatbot_icon from '../assets/icons/chatbot.png'
 
 const Chatbot = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
@@ -13,7 +14,7 @@ const Chatbot = () => {
             {/* Chat button */}
             <div className="chat-popup">
                 <button className="chat-button" onClick={toggleChat}>
-                    💬
+                    <img src={chatbot_icon} alt='chatbot icon' className='chat-bot-icon' />
                 </button>
             </div>
 

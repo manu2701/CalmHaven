@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import "./App.css";
 import logo from "./assets/logo/logo_color5.png";
+import profile_icon from "./assets/icons/profile_icon.png"
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 
@@ -33,6 +34,7 @@ function App() {
             <li><Link to="/stories">STORIES OF STRENGTH</Link></li>
             <li><Link to="/resources">RESOURCES</Link></li>
             <li><Link to="/todo-list">TO-DO LIST</Link></li>
+            <li><Link to="/profile"><img src={profile_icon} alt="Profile-icon" className="profile" /></Link></li>
           </ul>
         </nav>
       )}
