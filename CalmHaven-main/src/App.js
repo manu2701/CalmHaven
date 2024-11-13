@@ -9,7 +9,7 @@ import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import "./App.css";
 import logo from "./assets/logo/logo_color5.png";
-import profile_icon from "./assets/icons/profile_icon.png"
+import profile_icon from "./assets/icons/profile_icon.png";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 
@@ -49,7 +49,10 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-      <Chatbot />
+      
+      {/* Only show Chatbot if not on login or signup pages */}
+      {!isAuthPage && <Chatbot />}
+      
       {/* Only show footer if not on login or signup pages */}
       {!isAuthPage && <Footer />}
     </div>
