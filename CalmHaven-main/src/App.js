@@ -35,7 +35,7 @@ function App() {
             <li><Link to="/stories">STORIES OF STRENGTH</Link></li>
             <li><Link to="/resources">RESOURCES</Link></li>
             <li><Link to="/todo-list">TO-DO LIST</Link></li>
-            <li><Link to="/profile"><img src={profile_icon} alt="Profile-icon" className="profile" onClick={toggleChat} /></Link></li>
+            {/* <li><Link to="/profile"><img src={profile_icon} alt="Profile-icon" className="profile" onClick={toggleChat} /></Link></li> */}
           </ul>
         </nav>
       )}
