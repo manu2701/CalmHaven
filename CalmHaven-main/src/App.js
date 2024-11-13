@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from "./components/Home";
 import AboutPTSD from "./components/AboutPTSD";
@@ -15,13 +15,22 @@ import Chatbot from "./components/Chatbot";
 
 function App() {
   const location = useLocation();
-
-  // Check if the current route is login or signup
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
+
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const username = "John Doe"; // Replace this with dynamic username if available
+
+  const toggleProfileMenu = () => {
+    setIsProfileOpen(!isProfileOpen);
+  };
+
+  const handleLogout = () => {
+    // Implement logout functionality here
+    console.log("User logged out");
+  };
 
   return (
     <div className="App">
-      {/* Only show navbar if not on login or signup pages */}
       {!isAuthPage && (
         <nav className="navbar">
           <div className="logo">
@@ -35,7 +44,15 @@ function App() {
             <li><Link to="/stories">STORIES OF STRENGTH</Link></li>
             <li><Link to="/resources">RESOURCES</Link></li>
             <li><Link to="/todo-list">TO-DO LIST</Link></li>
-            {/* <li><Link to="/profile"><img src={profile_icon} alt="Profile-icon" className="profile" onClick={toggleChat} /></Link></li> */}
+            <li>
+              <img src={profile_icon} alt="Profile Icon" className="profile-icon" onClick={toggleProfileMenu} />
+              {isProfileOpen && (
+                <div className="profile-dropdown">
+                  <p>{username}</p>
+                  <button onClick={handleLogout}>Logout</button>
+                </div>
+              )}
+            </li>
           </ul>
         </nav>
       )}
@@ -50,10 +67,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Routes>
       
-      {/* Only show Chatbot if not on login or signup pages */}
       {!isAuthPage && <Chatbot />}
-      
-      {/* Only show footer if not on login or signup pages */}
       {!isAuthPage && <Footer />}
     </div>
   );
