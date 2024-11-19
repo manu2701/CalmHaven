@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import './Survey.css'; // Optional for styling
 import surveylogo from '../assets/logo/logo_color2.png';
 
