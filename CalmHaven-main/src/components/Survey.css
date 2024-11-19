@@ -1,0 +1,90 @@
+.survey-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 20px;
+    font-family: Poppins;
+  }
+  
+  .survey-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .survey-header p{
+    font-size: large;
+    font-weight: 600;
+  }
+  
+  .survey-logo {
+    width: 70px;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .survey-title {
+    font-size: 24px;
+    margin-top: 50px;
+  }
+  
+  .survey-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .question-container {
+    text-align: center;
+  }
+  
+  .question {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .options {
+    margin-bottom: 20px;
+  }
+  
+  .option-button {
+    background-color: #004C4C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+  }
+  
+  .option-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .input-field {
+    padding: 10px;
+    font-size: 16px;
+    width: 80%;
+    margin: 10px 0;
+  }
+  
+  .next-button,
+  .submit-button {
+    background-color: #004C4C;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .next-button:disabled,
+  .submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .next-button,
+  .submit-button {
+    margin-top: 20px;
+  }

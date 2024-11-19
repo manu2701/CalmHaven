@@ -12,10 +12,12 @@ import logo from "./assets/logo/logo_color5.png";
 import profile_icon from "./assets/icons/profile_icon.png";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
+import Survey from "./components/Survey";
+
 
 function App() {
   const location = useLocation();
-  const isAuthPage = location.pathname === "/login" || location.pathname === "/signup";
+  const isAuthPage = location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/survey";
 
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const username = "John Doe"; // Replace this with dynamic username if available
@@ -65,6 +67,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/survey" element={<Survey />} />
+
       </Routes>
       
       {!isAuthPage && <Chatbot />}

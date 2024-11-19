@@ -24,7 +24,7 @@ function Login() {
 
     // Proceed with login logic (e.g., API call for authentication)
     // After successful login, navigate to the home page
-    navigate("/");
+    navigate("/survey");
   };
 
   const handleGoogleLogin = () => {
