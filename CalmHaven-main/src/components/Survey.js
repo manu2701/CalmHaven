@@ -93,7 +93,7 @@ const Survey = () => {
                 ))}
               </div>
             ) : (
-              <input
+                <input
                 type="number"
                 value={answers.q3 || ''}
                 onChange={handleInputChange}
@@ -101,7 +101,18 @@ const Survey = () => {
                 max="10"
                 className="input-field"
                 placeholder="Enter a number between 1 and 10"
+                onBlur={(event) => {
+                  const value = parseInt(event.target.value, 10);
+                  if (value < 1 || value > 10) {
+                    alert("Please enter a number between 1 and 10");
+                    setAnswers((prevAnswers) => ({
+                      ...prevAnswers,
+                      q3: '',
+                    }));
+                  }
+                }}
               />
+              
             )}
 
             {currentQuestion < questions.length - 1 ? (

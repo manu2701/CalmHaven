@@ -66,7 +66,13 @@
     width: 80%;
     margin: 10px 0;
   }
-  
+  .question-container input::placeholder{
+    color: #aaa;
+    font-family: 'Poppins';
+    font-size: 14px;
+    opacity: 1;   
+  }
+
   .next-button,
   .submit-button {
     background-color: #004C4C;
