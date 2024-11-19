@@ -80,14 +80,14 @@
     background-position: center;
     margin-top: 40px;
 }
-.title{
+.feedback .title{
     color: white;
     font-size: xx-large;
     padding-top: 40px;
     font-weight: 600;
     letter-spacing: 2px;
 }
-.subtitle{
+.feedback .subtitle{
     color: white;
     font-size: small;
     padding-top: 10px;
@@ -95,13 +95,13 @@
     padding-right: 550px;
 }
 
-.card-container{
+.feedback .card-container{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     height: 70vh;
 }
-.card {
+.feedback .card {
     width: 400px;
     height: 382px;
     background-color: #ffffff;
