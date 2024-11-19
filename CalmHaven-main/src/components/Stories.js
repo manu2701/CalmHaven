@@ -82,12 +82,14 @@ function Stories(){
                     <div className="card"></div>
                     <div className="card"></div>
                     <div className="card"></div>
-                </div>
-                <div className="card-container">
-                    <div className="card"></div>
-                    <div className="card"></div>
                     <div className="card"></div>
                 </div>
+                {/* <div className="card-container">
+                    <div className="card"></div>
+                    <div className="card"></div>
+                    <div className="card"></div>
+                    <div className="card"></div>
+                </div> */}
             </div>
         </div>
     );

@@ -79,6 +79,7 @@
     background-size: cover;
     background-position: center;
     margin-top: 40px;
+    padding-bottom: 50px;
 }
 .feedback .title{
     color: white;
@@ -91,19 +92,21 @@
     color: white;
     font-size: small;
     padding-top: 10px;
-    padding-left: 550px;
-    padding-right: 550px;
+    /* padding-left: 550px;
+    padding-right: 550px; */
+    padding-bottom: 60px;
 }
 
 .feedback .card-container{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 70vh;
+    margin-bottom: 20px;
+
 }
 .feedback .card {
-    width: 400px;
-    height: 382px;
+    width: 300px;
+    height: 282px;
     background-color: #ffffff;
     border-radius: 15px;
     font-size: 2rem;

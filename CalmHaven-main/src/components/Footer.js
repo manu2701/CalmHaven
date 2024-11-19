@@ -6,7 +6,7 @@ import insta from "../assets/icons/instaicon.svg";
 import lin from "../assets/icons/linkedin-icon.png";
 function Footer() {
   return (
-    <footer style={{ backgroundColor: '#003030', color: 'white', padding: '20px', marginTop: '30px' }}>
+    <footer style={{ backgroundColor: '#003030', color: 'white', padding: '20px'}}>
       <div className="footer-container">
         <div className="footer-section">
           <h3>Quick Links</h3>
