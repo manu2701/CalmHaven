@@ -20,6 +20,7 @@ function App() {
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/survey";
 
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const username = "John Doe"; // Replace this with dynamic username if available
 
   const toggleProfileMenu = () => {
@@ -31,6 +32,10 @@ function App() {
     console.log("User logged out");
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <div className="App">
       {!isAuthPage && (
@@ -39,7 +44,8 @@ function App() {
             <img src={logo} alt="CalmHaven Logo" className="logo" />
             <p>CALM HAVEN</p>
           </div>
-          <ul>
+          <button className="menu-button" onClick={toggleMobileMenu}>☰</button>
+          <ul className={isMobileMenuOpen ? 'active' : ''}>
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/about-ptsd">ABOUT PTSD</Link></li>
             <li><Link to="/consult">CONSULT</Link></li>

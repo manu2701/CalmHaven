@@ -27,7 +27,14 @@ function Stories(){
                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5047000/" target="_blank">PTSD Treatment for Veterans: What's Working, What's New, and What's Next</a><br></br>
                     <a href="https://www.va.gov/health-care/health-needs-conditions/mental-health/ptsd/" target="_blank">PTSD Treatment - VA.gov</a>
                 </div>
-                <iframe width="703" height="430" src="https://www.youtube.com/embed/jSd3-xkOaJM" title="In assault case, officer who stomped cuffed man&#39;s head says he was trying to pin down his shoulder" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/jSd3-xkOaJM" 
+                    title="In assault case, officer who stomped cuffed man's head says he was trying to pin down his shoulder" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen
+                ></iframe>
           
 
                 <div className="cont-head">
@@ -39,7 +46,14 @@ function Stories(){
                 <div className="hyplinks">
                     <a href="https://www.emdria.org/resource/the-effectiveness-of-emdr-with-adult-female-survivors-of-childhood-sexual-abuse-social-work-research/" target="_blank">The effectiveness of EMDR with adult female survivors of childhood sexual abuse (Social Work Research)</a><br></br>
                 </div>
-                <iframe width="703" height="430" src="https://www.youtube.com/embed/IxNfu3mCJjs" title="Sarah&#39;s Severe Chronic Fatigue Syndrome (M.E.) Full Recovery Story!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/IxNfu3mCJjs" 
+                    title="Sarah's Severe Chronic Fatigue Syndrome (M.E.) Full Recovery Story!" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen
+                ></iframe>
 
 
                 <div className="cont-head">
@@ -48,7 +62,14 @@ function Stories(){
                 <div className="cont-para">
                 Dave Brown, a firefighter and paramedic, developed PTSD after responding to years of emergency situations, including car accidents, fires, and suicides. His mental health began to deteriorate when he started experiencing nightmares and emotional numbness. After reaching a breaking point, he sought help through his department’s Employee Assistance Program (EAP) and began trauma-focused cognitive behavioral therapy (TF-CBT). The support of his family, therapist, and colleagues was crucial to his recovery. Dave now speaks publicly about the mental health challenges faced by first responders, emphasizing that seeking help is a sign of strength, not weakness.
                 </div>
-                <iframe width="703" height="430" src="https://www.youtube.com/embed/WGJ7Gb5jl0E" title="Beyond The Call:  Mental Health Awareness for First Responder&#39;s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/WGJ7Gb5jl0E" 
+                    title="Beyond The Call:  Mental Health Awareness for First Responder's" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen
+                ></iframe>
             
                 <div className="cont-head">
                 Trauma Survivor Uses Yoga and Mindfulness to Heal
@@ -59,7 +80,14 @@ function Stories(){
                 <div className="hyplinks">
                     <a href="https://sites.bu.edu/daniellerousseau/2023/12/07/yoga-and-mindfulness-an-effective-approach-for-trauma-recovery/" target="_blank">Yoga and Mindfulness: An Effective Approach for Trauma Recovery</a><br></br>
                 </div>
-                <iframe width="703" height="430" src="https://www.youtube.com/embed/diDxOdHFLcc" title="Finding Healing From Sexual Assault Part 1 - Leila Sommerfeld and Kathleen Terrill" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/diDxOdHFLcc" 
+                    title="Finding Healing From Sexual Assault Part 1 - Leila Sommerfeld and Kathleen Terrill" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen
+                ></iframe>
 
 
                 <div className="cont-head">
@@ -72,7 +100,14 @@ function Stories(){
                     <a href="https://combatstress.org.uk/get-help/how-we-help/peer-support" target="_blank">Peer Support - Combat stress</a><br></br>
                     <a href="https://www.researchgate.net/publication/378423343_An_Evaluation_of_Veteran-Led_Peer_Support_Services_for_UK_Veterans_with_Complex_Mental_Health_Needs" target="_blank">An Evaluation of Veteran-Led Peer Support Services for UK Veterans with Complex Mental Health Needs</a><br></br>
                 </div>
-                <iframe width="703" height="430" src="https://www.youtube.com/embed/SDBfEulDLtk" title="Veterans on Symptoms of PTSD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe 
+                    src="https://www.youtube.com/embed/SDBfEulDLtk" 
+                    title="Veterans on Symptoms of PTSD" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen
+                ></iframe>
 
             </div>
             <div className="feedback">

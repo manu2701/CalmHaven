@@ -15,6 +15,9 @@
     text-align: center;
     color: white;
     margin-left: 40px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
   }
   .q1{
     padding-top: 150px;
@@ -28,14 +31,17 @@
     text-align: left;
   }
   .divquote{
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
   }
     
   .buttons {
     margin-top: 80px;
-    width: 1300px;
+    width: 100%;
+    max-width: 1300px;
     align-items: flex-start;
     display: flex;
+    padding: 0 20px;
   }
 
   .btn {
@@ -88,6 +94,9 @@
   padding-right: 100px;
   padding-top: 50px;
   font-size: larger;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
 }
 .bot-features{
   margin-top: 130px;
@@ -129,4 +138,41 @@
 
 .icon:hover{
   transform: scale(1.3);
+}
+
+@media screen and (max-width: 768px) {
+  .q1 p {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .about-chatbot {
+    padding: 20px;
+  }
+
+  .about-right img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .list-tech ol li {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .q1 p {
+    font-size: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 200px;
+    font-size: 16px;
+  }
 }

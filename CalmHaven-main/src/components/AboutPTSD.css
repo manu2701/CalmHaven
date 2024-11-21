@@ -86,3 +86,27 @@
     width: 1229px;
     border-radius: 30px 0px 0px 30px;
   }
+  /* Add these CSS rules */
+  iframe {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;  /* Maintains video proportions */
+  }
+@media screen and (max-width: 768px) {
+  .about-ptsd-left {
+    display: none;
+  }
+  
+  .about-ptsd-right {
+    margin-left: 0;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about-ptsd-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}

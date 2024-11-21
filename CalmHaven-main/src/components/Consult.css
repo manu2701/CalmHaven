@@ -47,18 +47,16 @@
 }
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
-    align-items: center;
-    height:auto;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .card {
-    width: 400px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     height: 262px;
     padding-left:20px;
     padding-right: 10px;
@@ -70,19 +68,18 @@
     justify-content: center;
     color: rgba(0, 0, 0, 0.7);
     z-index: 1;
-  }
-  .info-doct{
+}
+.info-doct{
     display: flex;
     align-items: flex-start;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-  }
+}
 
-
-  .doctor-image {
+.doctor-image {
     width: 100px;
     height: 110px;
     border-radius: 10px;
@@ -137,7 +134,9 @@ hr{
 .request-callback{
     border:  1px solid rgb(204, 204, 204);
     border-radius: 15px;
-    margin: 50px 200px 50px 200px;
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 0 20px;
 }
 .question-cant-find{
     text-align: left;
@@ -181,4 +180,27 @@ hr{
     background-color: #003030;
     color: white;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 0 20px;
+    }
+
+    .callback-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .request-name input,
+    .request-no input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .consult-head {
+        padding-left: 20px;
+        font-size: 18px;
+    }
 }

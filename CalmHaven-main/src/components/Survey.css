@@ -94,3 +94,18 @@
   .submit-button {
     margin-top: 20px;
   }
+
+  /* Add these CSS rules for responsive videos */
+iframe {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;  /* Maintains video proportions */
+}
+
+/* Adjust video size for different screen sizes */
+@media screen and (max-width: 768px) {
+  iframe {
+    width: 100%;
+    height: auto;
+  }
+}
