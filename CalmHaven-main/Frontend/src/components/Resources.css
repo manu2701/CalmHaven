@@ -1,7 +1,62 @@
 .reso{
     height: 100vh;
+    align-items: center;
+    justify-items: center;
 }
-.res-land p{
-    font-size: 100px;
+.res-land{
     color: black;
+    align-items: center;
+    justify-items: center;
+    padding-top: 170px;
+}
+.res-land-1{
+    display: flex;
+    font-size: small;
+    height: 110px;
+}
+.res-land-1 p{
+    font-size: 100px;
+    font-weight: 400;
+}
+.res-land-1 .res-para{
+    width: 345px;
+    text-align: left;
+    font-weight: 500;
+    padding-top: 55px;
+    padding-left: 10px;
+    letter-spacing: 0.25px;
+}
+.res-land-2{
+    display: flex;
+    width: 1000px;
+    /* justify-content: center; */
+}
+.res-land-2 p{
+    font-size: 120px;
+    font-weight: 400;
+    margin-left: 200px;
+    letter-spacing: -2px;
+}
+.res-land-2 .res-color{
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 500;
+    height: 40px;
+    padding: 0px 23px 0px 23px;
+    background-color: #003030;
+    color: white;
+    border-radius: 30px;
+}
+.res-lists{
+    display: flex;
+    margin-top: 120px;
+}
+.res-lists p{
+    padding: 7px 20px 7px 20px;
+    border: 2.25px solid #000000;
+    border-radius: 15px;
+    margin: 0px 8px 0px 8px;
+    font-weight: 500;
 }
