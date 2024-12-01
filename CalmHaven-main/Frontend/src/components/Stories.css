@@ -1,0 +1,152 @@
+.landing{
+    display: flex;
+    height: 100vh;
+    /* margin-top: 100px; */
+    background-image: url('/src/assets/bg/stories_bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.left-landing{
+    margin-top: 250px;
+    width: 800px;
+    padding-left: 80px;
+    text-align: left;
+}
+
+.left-landing p{
+    color: white;
+    font-size: 66px;
+}
+.strength{
+    color: white;
+    font-size: 106px;
+}
+
+.para{
+    color: white;
+    font-size: small;
+}
+.headin{
+    text-align: left;
+    margin-top: 40px;
+}
+.head1{
+    color: black;
+    font-size: 30px;
+    margin-left: 50px;
+    font-weight: 600;
+}
+
+.headin p{
+    color: black;
+    font-size: medium;
+    margin-left: 90px;
+    font-weight: 500;
+    padding-top: 40px;
+    margin-right: 90px;
+    text-align: justify;
+}
+.cont-head{
+    margin-left: 90px;
+    margin-top: 80px;
+    text-align: left;
+    color: #004C4C;
+    font-weight: 600;
+    font-size:x-large;
+}
+.cont-para{
+    margin-left: 90px;
+    margin-top: 25px;
+    text-align: left;
+    color: #515151;
+}
+.hyplinks{
+    margin-left: 90px;
+    text-align: left;
+    margin-top: 30px;
+}
+.hyplinks a{
+    color: #0066cc;
+    text-decoration: none;
+}
+.stories-content iframe{
+    text-align: center;
+    margin-top: 40px;
+}
+.stories-content{
+    margin-right: 90px;
+}
+
+.feedback{
+    background-image: url('/src/assets/bg/feedback_bg.svg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 40px;
+    padding-bottom: 50px;
+}
+.feedback .title{
+    color: white;
+    font-size: xx-large;
+    padding-top: 40px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.feedback .subtitle{
+    color: white;
+    font-size: small;
+    padding-top: 10px;
+    /* padding-left: 550px;
+    padding-right: 550px; */
+    padding-bottom: 60px;
+}
+
+.slick-slide {
+    padding: 0 15px; /* Add padding to each slide */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.feedback .card-container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+.feedback .card {
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 35px;
+    border-radius: 15px;
+    height: 350px;
+    width: 250px; /* Adjust card width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.card .feed_name{
+    color: black;
+    font-size: medium;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.card .feed_des{
+    color: black;
+    font-size: x-small;
+    font-weight: 300;
+}
+.card .feed_about{
+    margin-top: 20px;
+    color: black;
+    font-size: small;
+    font-weight: 400;
+}
+.feedback .card img{
+    height: 70px;
+}
+

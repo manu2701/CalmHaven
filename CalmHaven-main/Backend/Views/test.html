@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Plan Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f7f6;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #diet-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .diet-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .diet-card:hover {
+            transform: scale(1.05);
+        }
+
+        .diet-card h3 {
+            color: #16a085;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .meal {
+            margin-bottom: 8px;
+        }
+
+        .meal strong {
+            color: #2980b9;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #progress-bar-status {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .diet-card h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Diet Plan</h1>
+        <div id="diet-plans">
+            <!-- Diet plans will be displayed here -->
+            <div class="loading" id="loading">Wait brother </div>
+        </div>
+        <div id="progress-bar-status">Progress: 0</div>
+        <div class="error-message" id="error-message" style="display: none;">
+            Error: Failed to fetch diet data
+        </div>
+    </div>
+
+    <script>
+        // Function to update progress based on checked boxes
+        // Function to save checkbox state to local storage
+function saveCheckboxState(day, isChecked) {
+    let checkboxStates = JSON.parse(localStorage.getItem('checkboxStates')) || {};
+    checkboxStates[day] = isChecked;
+    localStorage.setItem('checkboxStates', JSON.stringify(checkboxStates));
+}
+
+// Function to load checkbox states from local storage
+function loadCheckboxStates() {
+    return JSON.parse(localStorage.getItem('checkboxStates')) || {};
+}
+
+// Function to update checkbox states on page load
+function applyCheckboxStates() {
+    const checkboxStates = loadCheckboxStates();
+
+    // Iterate over all checkboxes and set their states
+    const checkboxes = document.querySelectorAll('.day-checkbox');
+    checkboxes.forEach((checkbox) => {
+        const day = checkbox.dataset.day; // Use the data-day attribute to identify the day
+        if (checkboxStates[day] !== undefined) {
+            checkbox.checked = checkboxStates[day];
+        }
+    });
+
+    // Update the progress bar based on the loaded states
+    updateProgressBar();
+}
+
+// Function to update progress bar and save states
+function updateProgressBar() {
+    const checkboxes = document.querySelectorAll('.day-checkbox');
+    let checkedCount = 0;
+
+    checkboxes.forEach((checkbox) => {
+        const day = checkbox.dataset.day; // Use the data-day attribute to identify the day
+        const isChecked = checkbox.checked;
+
+        // Save the state to local storage
+        saveCheckboxState(day, isChecked);
+
+        if (isChecked) checkedCount++;
+    });
+
+    let progress = 0;
+    if (checkedCount > 3 && checkedCount < 7) {
+        progress = 1;
+    } else if (checkedCount >= 7) {
+        progress = 2;
+    }
+
+    document.getElementById('progress-bar-status').textContent = `Progress: ${progress}`;
+}
+
+// Function to fetch diet data from the backend API
+async function fetchDietData() {
+    try {
+        const response = await fetch('http://localhost:8000/api/Todo/DietData', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWFudXNocmVlIiwiaWF0IjoxNzMyMTE1Njc0LCJleHAiOjE3MzIxMTkyNzR9.h24fAp3CpwZYY8_u37OKfGE4TW5ii3M9h4F4EIhbjZg',
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch diet data');
+        }
+
+        const data = await response.json();
+        const dietPlanMessage = data.msg;
+        const dietData = data.data;
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('diet-plans').innerHTML = `<h2>${dietPlanMessage}</h2>`;
+
+        dietData.forEach((dayData) => {
+            const dayDiv = document.createElement('div');
+            dayDiv.classList.add('diet-card');
+
+            const checkboxContainer = document.createElement('div');
+            checkboxContainer.classList.add('checkbox-container');
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.classList.add('day-checkbox');
+            checkbox.dataset.day = dayData.day; // Add a unique identifier (day name)
+            checkbox.addEventListener('change', updateProgressBar);
+
+            checkboxContainer.appendChild(checkbox);
+
+            const dayName = document.createElement('h3');
+            dayName.textContent = dayData.day;
+
+            dayDiv.appendChild(checkboxContainer);
+            dayDiv.appendChild(dayName);
+
+            ['breakfast', 'lunch', 'dinner'].forEach((mealType) => {
+                const mealDiv = document.createElement('div');
+                mealDiv.classList.add('meal');
+                mealDiv.innerHTML = `<strong>${mealType.charAt(0).toUpperCase() + mealType.slice(1)}:</strong> ${dayData[mealType]}`;
+                dayDiv.appendChild(mealDiv);
+            });
+
+            document.getElementById('diet-plans').appendChild(dayDiv);
+        });
+
+        // Apply saved checkbox states
+        applyCheckboxStates();
+
+    } catch (error) {
+        console.error(error);
+        document.getElementById('diet-plans').style.display = 'none';
+        document.getElementById('error-message').style.display = 'block';
+    }
+}
+
+// Fetch diet data when the page loads
+window.onload = fetchDietData;
+
+    </script>
+
+</body>
+</html>
