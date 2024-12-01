@@ -18,6 +18,7 @@ function Resources(){
                     <p>Vedios</p>
                     <p>Research</p>
                     <p>Nutrition</p>
+                    <p>Exercise</p>
                 </div>
             </div>
         </div>
