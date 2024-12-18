@@ -1,14 +1,27 @@
-const mongoose = require("mongoose");
-require('dotenv').config();
-mongoose.connect(process.env.MONGODB_URL);
-const db = mongoose.connection;
+const mongoose = require('mongoose');
 
-db.on("error" , (err)=>{
-    console.log("there was an error while connecting to db" + err);
-});
+// MongoDB Configuration
+const MONGODB_URL = 'mongodb://localhost:27017/calmhaven';
+const PORT = 8080;
 
-db.on("open",() => {
-    console.log("connected to db");
-});
+// Gemini API Configuration - Use environment variable
+const GEMINI_API_KEY = 'AIzaSyAfJNEv2bB5r0cKbnION3nPlqu65ka_pWA';
 
-module.exports = db;
+// MongoDB Connection
+const connectDB = async () => {
+    try {
+        await mongoose.connect(MONGODB_URL);
+        console.log('MongoDB connected successfully');
+    } catch (error) {
+        console.error('MongoDB connection error:', error);
+        process.exit(1);
+    }
+};
+
+// Export configuration
+module.exports = {
+    connectDB,
+    MONGODB_URL,
+    GEMINI_API_KEY,
+    PORT
+};

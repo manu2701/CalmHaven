@@ -1,18 +1,28 @@
 const express = require("express");
-require("dotenv").config();
 const cors = require("cors");
-const app = express();
+const config = require("./config");
 const routes = require("./Routes/index");
+
+const app = express();
+
+// Middleware
 app.use(cors());
-app.use(express.urlencoded());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// Connect to MongoDB
+config.connectDB();
 
-const port =  process.env.PORT||8080;
+// Routes
+app.use("/api", routes);
 
-app.use("/api" , routes);
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Something went wrong!' });
+});
 
-
-app.listen(port, () => {
-	console.log(`Server is running on  http://localhost:${port}/`);
+const PORT = config.PORT;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}/`);
 });
