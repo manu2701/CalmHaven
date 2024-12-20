@@ -1,12 +1,13 @@
 .App {
   text-align: center;
+  padding-top: 80px; /* Add space for fixed navbar */
 }
 
 .logo {
   display: flex;
   align-items: center;
-  justify-content: center; 
   color: white;
+  margin-left: 20px;
 }
 
 .logo img {
@@ -15,30 +16,35 @@
 }
 
 .logo p {
-  font-size:medium;
+  font-size: medium;
   font-weight: 600;
   letter-spacing: 1px;
-  text-align: center;
+  margin: 0;
 }
 
 .navbar {
   background-color: #003030;
-  box-shadow: 0px 2px 40px 5px #000000;
-  padding: 5px 20px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  width:1550px;
-  display:flex;
-  justify-content:space-between;
   letter-spacing: 1px;
   font-weight: 600;
-  font-size: medium;  
-  position:fixed;
+  font-size: medium;
 }
 
 .navbar ul {
   list-style-type: none;
-  display:flex;
+  display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
   margin-right: 30px;
 }
 
@@ -50,8 +56,55 @@
 .navbar ul li a {
   color: white;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .navbar ul li a:hover {
-  text-decoration: underline;
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.profile-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  min-width: 150px;
+  z-index: 1001;
+}
+
+.profile-dropdown p {
+  margin: 0;
+  padding: 5px 0;
+  color: #333;
+}
+
+.profile-dropdown button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: none;
+  background-color: #003030;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-dropdown button:hover {
+  background-color: #004444;
 }

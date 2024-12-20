@@ -1,141 +1,208 @@
-import React, { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
-import './Survey.css'; // Optional for styling
-import surveylogo from '../assets/logo/logo_color2.png';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Survey.css';
+import Footer from './Footer';
 
-const Survey = () => {
+function Survey() {
     const navigate = useNavigate();
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({
-    q1: '',
-    q2: '',
-    q3: '',
-  });
+    const [answers, setAnswers] = useState({
+        q1: '',
+        q2: '',
+        q3: '',
+        q4: '',
+        q5: ''
+    });
+    const [error, setError] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const questions = [
-    {
-      question: "Do you have any dietary restrictions or preferences?",
-      options: [
-        "Vegan",
-        "Vegetarian",
-        "Eggitarian",
-        "Non-Vegetarian",
-      ],
-      id: "q1",
-    },
-    {
-      question: "How many hours of sleep do you typically get per night?",
-      options: [
-        "1-3 hours",
-        "3-5 hours",
-        "No sleep",
-      ],
-      id: "q2",
-    },
-    {
-      question: "What is your current stress level on a scale of 1-10?",
-      input: true,
-      id: "q3",
-    },
-  ];
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            navigate('/login');
+        }
+    }, [navigate]);
 
-  const handleOptionChange = (questionId, option) => {
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [questionId]: option,
-    }));
-  };
+    const questions = [
+        {
+            id: 'q1',
+            text: 'How are you feeling today?',
+            options: ['Very Good', 'Good', 'Neutral', 'Not Good', 'Very Bad']
+        },
+        {
+            id: 'q2',
+            text: 'How much sleep did you get last night?',
+            options: ['No sleep', '1-3 hours', '3-5 hours', '5-7 hours', '7+ hours']
+        },
+        {
+            id: 'q3',
+            text: 'On a scale of 1-10, how stressed do you feel?',
+            options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        },
+        {
+            id: 'q4',
+            text: 'Have you experienced any triggers today?',
+            options: ['Yes', 'No', 'Not Sure']
+        },
+        {
+            id: 'q5',
+            text: 'Would you like to talk to someone today?',
+            options: ['Yes', 'No', 'Maybe Later']
+        }
+    ];
 
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      q3: value,
-    }));
-  };
+    const handleOptionChange = (questionId, value) => {
+        setAnswers(prev => ({
+            ...prev,
+            [questionId]: value
+        }));
+    };
 
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    }
-  };
+    const mapAnswersToMetrics = () => {
+        // Convert feeling to stress level modifier
+        const feelingToStressModifier = {
+            'Very Good': -2,
+            'Good': -1,
+            'Neutral': 0,
+            'Not Good': 1,
+            'Very Bad': 2
+        };
 
-  const handleSubmit = () => {
-    // Submit the form or handle final actions here
-    console.log('Survey Submitted:', answers);
-    navigate("/");
-  };
+        // Convert sleep hours to quality score
+        const sleepToQuality = {
+            'No sleep': 1,
+            '1-3 hours': 3,
+            '3-5 hours': 5,
+            '5-7 hours': 7,
+            '7+ hours': 9
+        };
 
-  return (
-    <div className="survey-container">
-      <header className="survey-header">
-        <img src={surveylogo} alt="Survey Logo" className="survey-logo" />
-        <p>CALMHAVEN</p>
-        <h1 className="survey-title">Take the Survey to Get an Activity List</h1>
-      </header>
+        // Base stress level from question 3
+        let stressLevel = parseInt(answers.q3);
+        
+        // Modify stress level based on feeling
+        stressLevel += feelingToStressModifier[answers.q1] || 0;
+        
+        // Ensure stress level stays within 1-10 range
+        stressLevel = Math.min(Math.max(stressLevel, 1), 10);
 
-      <div className="survey-body">
-        {questions[currentQuestion] && (
-          <div className="question-container">
-            <p className="question">{questions[currentQuestion].question}</p>
+        return {
+            stressLevel,
+            sleepQuality: sleepToQuality[answers.q2] || 5,
+            hasTriggers: answers.q4 === 'Yes',
+            needsSupport: answers.q5 === 'Yes',
+            answers: answers // Include original answers
+        };
+    };
 
-            {questions[currentQuestion].options ? (
-              <div className="options">
-                {questions[currentQuestion].options.map((option, index) => (
-                  <button
-                    key={index}
-                    className="option-button"
-                    onClick={() => handleOptionChange(questions[currentQuestion].id, option)}
-                    disabled={answers[questions[currentQuestion].id] !== ''}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            ) : (
-                <input
-                type="number"
-                value={answers.q3 || ''}
-                onChange={handleInputChange}
-                min="1"
-                max="10"
-                className="input-field"
-                placeholder="Enter a number between 1 and 10"
-                onBlur={(event) => {
-                  const value = parseInt(event.target.value, 10);
-                  if (value < 1 || value > 10) {
-                    alert("Please enter a number between 1 and 10");
-                    setAnswers((prevAnswers) => ({
-                      ...prevAnswers,
-                      q3: '',
-                    }));
-                  }
-                }}
-              />
-              
-            )}
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        if (!isFormValid) {
+            setError('Please answer all questions before submitting.');
+            return;
+        }
 
-            {currentQuestion < questions.length - 1 ? (
-              <button
-                onClick={handleNextQuestion}
-                className="next-button"
-                disabled={!answers[questions[currentQuestion].id]}
-              >
-                Next
-              </button>
-            ) : (
-              <button onClick={handleSubmit} 
-              className="submit-button"
-              disabled={!answers[questions[currentQuestion].id]}
-              >
-                Submit
-              </button>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
+        setIsSubmitting(true);
+        setError('');
+
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                navigate('/login');
+                return;
+            }
+
+            const metrics = mapAnswersToMetrics();
+            console.log('Submitting metrics:', metrics);
+
+            const response = await fetch('http://localhost:8080/api/todos/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                },
+                body: JSON.stringify(metrics)
+            });
+
+            const data = await response.json();
+            console.log('Server response:', data);
+
+            if (!response.ok) {
+                if (response.status === 401) {
+                    console.log('Token expired, redirecting to login...');
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                    navigate('/login');
+                    return;
+                }
+                throw new Error(data.error || 'Failed to submit survey');
+            }
+
+            // Clear form and navigate to todo list
+            setAnswers({
+                q1: '',
+                q2: '',
+                q3: '',
+                q4: '',
+                q5: ''
+            });
+            
+            console.log('Survey submitted successfully, navigating to todo list...');
+            navigate('/todo-list', { replace: true });
+        } catch (error) {
+            console.error('Survey submission error:', error);
+            setError(error.message || 'Failed to submit survey. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    const isFormValid = Object.values(answers).every(answer => answer !== '');
+
+    return (
+        <>
+            <div className="survey-container">
+                <div className="survey-header">
+                    <h2>Daily Wellness Check</h2>
+                    <p>Help us understand how you're doing today</p>
+                    {error && <div className="error-message">{error}</div>}
+                </div>
+
+                <form onSubmit={handleSubmit} className="survey-form">
+                    {questions.map((question) => (
+                        <div key={question.id} className="question-container">
+                            <h3>{question.text}</h3>
+                            <div className="options-container">
+                                {question.options.map((option) => (
+                                    <label key={option} className="option-label">
+                                        <input
+                                            type="radio"
+                                            name={question.id}
+                                            value={option}
+                                            checked={answers[question.id] === option}
+                                            onChange={() => handleOptionChange(question.id, option)}
+                                            className="option-input"
+                                            required
+                                        />
+                                        <span className="option-text">{option}</span>
+                                    </label>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+
+                    <button 
+                        type="submit" 
+                        className="submit-button"
+                        disabled={!isFormValid || isSubmitting}
+                    >
+                        {isSubmitting ? 'Submitting...' : 'Submit'}
+                    </button>
+                </form>
+            </div>
+            <Footer />
+        </>
+    );
+}
 
 export default Survey;

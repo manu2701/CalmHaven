@@ -1,96 +1,135 @@
 .survey-container {
-    max-width: 600px;
-    margin: 80px auto;
-    padding: 20px;
-    font-family: Poppins;
-  }
-  
-  .survey-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  .survey-header p{
-    font-size: large;
-    font-weight: 600;
-  }
-  
-  .survey-logo {
-    width: 70px;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .survey-title {
-    font-size: 24px;
-    margin-top: 50px;
-  }
-  
-  .survey-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .question-container {
-    text-align: center;
-  }
-  
-  .question {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  
-  .options {
-    margin-bottom: 20px;
-  }
-  
-  .option-button {
-    background-color: #004C4C;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
-  }
-  
-  .option-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .input-field {
-    padding: 10px;
-    font-size: 16px;
-    width: 80%;
-    margin: 10px 0;
-  }
-  .question-container input::placeholder{
-    color: #aaa;
-    font-family: 'Poppins';
-    font-size: 14px;
-    opacity: 1;   
-  }
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .next-button,
-  .submit-button {
-    background-color: #004C4C;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+.survey-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.survey-header h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.survey-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.survey-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.question-container {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.question-container h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background-color: white;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .next-button:disabled,
-  .submit-button:disabled {
-    background-color: #ccc;
+    transition: background-color 0.2s;
+}
+
+.option-label:hover {
+    background-color: #e9ecef;
+}
+
+.option-input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6c757d;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.option-input:checked {
+    border-color: #4CAF50;
+    background-color: #4CAF50;
+}
+
+.option-input:checked::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.option-text {
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.submit-button {
+    padding: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.submit-button:disabled {
+    background-color: #cccccc;
     cursor: not-allowed;
-  }
-  
-  .next-button,
-  .submit-button {
-    margin-top: 20px;
-  }
+}
+
+@media (max-width: 768px) {
+    .survey-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .survey-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .question-container {
+        padding: 1rem;
+    }
+
+    .option-label {
+        padding: 0.6rem;
+    }
+}
