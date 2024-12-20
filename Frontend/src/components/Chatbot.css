@@ -9,7 +9,7 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #4a90e2;
+    background-color: #ffffff;
     border: none;
     cursor: pointer;
     display: flex;
@@ -24,8 +24,8 @@
 }
 
 .chat-bot-icon {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
 }
 
 .chat-window {
@@ -36,7 +36,7 @@
     height: 500px;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     z-index: 1000;
@@ -44,7 +44,7 @@
 
 .chat-header {
     padding: 15px;
-    background-color: #4a90e2;
+    background-color: #014242;
     color: white;
     border-radius: 10px 10px 0 0;
     display: flex;
@@ -100,7 +100,7 @@
 }
 
 .message.user .message-content {
-    background-color: #4a90e2;
+    background-color: #014242;
     color: white;
 }
 
@@ -121,7 +121,7 @@
 
 .chat-input button {
     padding: 10px 20px;
-    background-color: #4a90e2;
+    background-color: #014242;
     color: white;
     border: none;
     border-radius: 20px;

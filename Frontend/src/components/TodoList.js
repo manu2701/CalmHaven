@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TodoList.css';
-import Footer from './Footer';
 
 function TodoList() {
     const [todos, setTodos] = useState([]);
@@ -191,7 +190,6 @@ function TodoList() {
                     ))}
                 </div>
             </div>
-            <Footer />
         </>
     );
 }
