@@ -29,16 +29,24 @@ function App() {
       setIsLoggedIn(!!localStorage.getItem('token'));
     };
 
+    // Update state when the token changes
     window.addEventListener('storage', checkLoginStatus);
     return () => window.removeEventListener('storage', checkLoginStatus);
   }, []);
+
+  useEffect(() => {
+    // Revalidate login state on route change
+    setIsLoggedIn(!!localStorage.getItem('token'));
+  }, [location]);
 
   const toggleProfileMenu = () => {
     setIsProfileOpen(!isProfileOpen);
   };
 
   const handleLogout = () => {
-    // Implement logout functionality here
+    localStorage.removeItem('token'); // Remove token
+    setIsLoggedIn(false); // Update state
+    setIsProfileOpen(false); // Close profile dropdown
     console.log("User logged out");
   };
 
@@ -58,7 +66,6 @@ function App() {
             <li><Link to="/resources">RESOURCES</Link></li>
             {isLoggedIn && (
               <>
-                <li><Link to="/survey">SURVEY</Link></li>
                 <li><Link to="/todo-list">TO-DO LIST</Link></li>
               </>
             )}
@@ -93,6 +100,7 @@ function App() {
     </div>
   );
 }
+
 
 function AppWrapper() {
   return (

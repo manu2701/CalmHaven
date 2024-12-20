@@ -148,7 +148,7 @@ function Survey() {
             });
             
             console.log('Survey submitted successfully, navigating to todo list...');
-            navigate('/todo-list', { replace: true });
+            navigate('/', { replace: true });
         } catch (error) {
             console.error('Survey submission error:', error);
             setError(error.message || 'Failed to submit survey. Please try again.');
