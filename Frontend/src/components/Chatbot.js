@@ -4,12 +4,13 @@ import chatbot_icon from '../assets/icons/chatbot.png';
 
 const API_BASE_URL = 'http://localhost:8080/api';
 
-const Chatbot = () => {
+const Chatbot = ({ isLoggedIn }) => {
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [isRateLimited, setIsRateLimited] = useState(false);
+    const [showLoginPrompt, setShowLoginPrompt] = useState(false);
     const messagesEndRef = useRef(null);
     const sessionId = useRef(Date.now().toString());
 
@@ -22,6 +23,10 @@ const Chatbot = () => {
     }, [messages]);
 
     const toggleChat = () => {
+        if (!isLoggedIn) {
+            setShowLoginPrompt(true); // Show login prompt for non-logged-in users
+            return;
+        }
         setIsChatOpen(!isChatOpen);
         if (!isChatOpen && messages.length === 0) {
             setMessages([{
@@ -29,6 +34,10 @@ const Chatbot = () => {
                 content: "Welcome to CalmHaven! I'm here to support you on your journey. How can I assist you today?"
             }]);
         }
+    };
+
+    const closeLoginPrompt = () => {
+        setShowLoginPrompt(false);
     };
 
     const handleInputChange = (e) => {
@@ -41,8 +50,7 @@ const Chatbot = () => {
 
         const userMessage = inputMessage.trim();
         setInputMessage('');
-        
-        // Add user message to chat
+
         setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
         setIsLoading(true);
 
@@ -59,20 +67,18 @@ const Chatbot = () => {
             });
 
             const data = await response.json();
-            
+
             if (response.ok) {
                 setMessages(prev => [...prev, { type: 'bot', content: data.response }]);
             } else if (response.status === 429) {
-                // Rate limit hit
                 setIsRateLimited(true);
-                const retryAfter = data.retryAfter || 60; // Default to 60 seconds
-                
+                const retryAfter = data.retryAfter || 60;
+
                 setMessages(prev => [...prev, {
                     type: 'bot',
                     content: data.error || "Rate limit exceeded. Please wait a moment before sending another message."
                 }]);
 
-                // Reset rate limit after the specified time
                 setTimeout(() => {
                     setIsRateLimited(false);
                 }, retryAfter * 1000);
@@ -98,7 +104,16 @@ const Chatbot = () => {
                 </button>
             </div>
 
-            {isChatOpen && (
+            {showLoginPrompt && (
+                <div className="login-prompt">
+                    <div className="login-prompt-content">
+                        <p>Login to experience this seamless chatbot.</p>
+                        <button onClick={closeLoginPrompt}>Close</button>
+                    </div>
+                </div>
+            )}
+
+            {isChatOpen && isLoggedIn && (
                 <div className="chat-window">
                     <div className="chat-header">
                         Chat with CalmHaven Assistant
@@ -129,8 +144,8 @@ const Chatbot = () => {
                             placeholder={isRateLimited ? "Please wait before sending another message..." : "Type your message..."}
                             disabled={isLoading || isRateLimited}
                         />
-                        <button 
-                            type="submit" 
+                        <button
+                            type="submit"
                             disabled={isLoading || isRateLimited || !inputMessage.trim()}
                             title={isRateLimited ? "Please wait before sending another message" : ""}
                         >

@@ -95,7 +95,7 @@ function App() {
         <Route path="/todo-list" element={<TodoList />} />
       </Routes>
       
-      {!isAuthPage && <Chatbot />}
+      <Chatbot isLoggedIn={isLoggedIn} />
       {!isAuthPage && <Footer />}
     </div>
   );
