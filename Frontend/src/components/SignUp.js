@@ -4,67 +4,157 @@ import './SignUp.css';
 import logo from "../assets/logo/logo_color3.png"; 
 
 const SignUp = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
+  const validateForm = () => {
+    if (!formData.username || !formData.email || !formData.password || !formData.confirmPassword) {
+      setError('All fields are required');
+      return false;
+    }
+
+    if (formData.username.length < 3) {
+      setError('Username must be at least 3 characters long');
+      return false;
+    }
+
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return false;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return false;
+    }
+
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError('Please enter a valid email address');
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+    // Clear error when user starts typing
+    if (error) setError('');
+  };
+
+  const handleSignUp = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+    
+    if (!validateForm()) {
       return;
     }
-    // Add registration logic here
-    navigate('/login'); // Navigate to login page after successful registration
+
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('http://localhost:8080/api/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Store auth data
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        // Navigate to survey page
+        navigate('/survey');
+      } else {
+        setError(data.error || 'Registration failed');
+      }
+    } catch (err) {
+      console.error('Registration error:', err);
+      setError('Network error. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <div className="signup-page">
-    <img src={logo} alt="CalmHaven Logo" className="signup-outside" />
-    <p>CALMHAVEN</p>
-    <div className="signup-container">
-      <h2>SIGN UP</h2>
-      <form onSubmit={handleSignUp}>
-        <label>Name:</label>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <label>Email:</label>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          placeholder="Set a password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <label>Confirm Password:</label>
-        <input
-          type="password"
-          placeholder="Re-enter the password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
-      <p className="message">
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
-    </div>
+      <img src={logo} alt="CalmHaven Logo" className="logo-outside" />
+      <p>CALMHAVEN</p>
+      <div className="signup-container">
+        <h2>SIGN UP</h2>
+        <form onSubmit={handleSignUp}>
+          <label>Username:</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter your username (min. 3 characters)"
+            value={formData.username}
+            onChange={handleChange}
+            disabled={isLoading}
+          />
+
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={handleChange}
+            disabled={isLoading}
+          />
+
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password (min. 6 characters)"
+            value={formData.password}
+            onChange={handleChange}
+            disabled={isLoading}
+          />
+
+          <label>Confirm Password:</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm your password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            disabled={isLoading}
+          />
+
+          {error && <p className="error-message">{error}</p>}
+
+          <div className="button-container">
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? "Creating Account..." : "Sign Up"}
+            </button>
+          </div>
+        </form>
+        <div className="message">
+          Already have an account? <Link to="/login">Login</Link>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,35 +1,77 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import "./Login.css";
 import logo from "../assets/logo/logo_color3.png"; 
-import googleicon from "../assets/icons/google_icon.png";
 
-function Login() {
+const Login = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const handleLogin = (event) => {
-    event.preventDefault();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+    // Clear error when user starts typing
+    if (error) setError('');
+  };
 
-    // Validation check
-    if (!email || !password) {
-      setError("Please enter both email and password.");
+  const validateForm = () => {
+    if (!formData.username || !formData.password) {
+      setError('Username and password are required');
+      return false;
+    }
+    return true;
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
       return;
     }
 
-    // Clear error message
-    setError("");
+    setIsLoading(true);
+    setError('');
 
-    // Proceed with login logic (e.g., API call for authentication)
-    // After successful login, navigate to the home page
-    navigate("/survey");
-  };
+    try {
+      console.log('Attempting login...');
+      const response = await fetch('http://localhost:8080/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password
+        }),
+      });
 
-  const handleGoogleLogin = () => {
-    alert("Google Login Clicked");
-    // Add Google login logic here
+      const data = await response.json();
+      console.log('Login response:', data);
+
+      if (response.ok) {
+        // Store auth data
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        
+        // Navigate to survey
+        navigate("/survey");
+      } else {
+        setError(data.error || 'Invalid credentials');
+      }
+    } catch (err) {
+      console.error('Login error:', err);
+      setError('Network error. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -39,44 +81,40 @@ function Login() {
       <div className="login-container">
         <h2>LOGIN</h2>
         <form onSubmit={handleLogin}>
-          <label>Email:</label>
-          <input 
-            type="email" 
-            placeholder="Enter your email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
+          <label>Username or Email:</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter your username or email"
+            value={formData.username}
+            onChange={handleChange}
+            disabled={isLoading}
           />
-          
+
           <label>Password:</label>
-          <input 
-            type="password" 
-            placeholder="Enter your password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            value={formData.password}
+            onChange={handleChange}
+            disabled={isLoading}
           />
-          
+
           {error && <p className="error-message">{error}</p>}
 
           <div className="button-container">
-            <button type="submit">Login</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? "Logging in..." : "Login"}
+            </button>
           </div>
         </form>
-        <div className="google-login">
-          <button onClick={handleGoogleLogin} className="google-button">
-            <img
-              src={googleicon}
-              alt="Google Logo"
-              className="google-icon"
-            />
-            Login with Google
-          </button>
-        </div>
         <div className="message">
           Don't have an account? <Link to="/signup">Sign Up</Link>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Login;

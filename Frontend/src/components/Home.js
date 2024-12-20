@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; 
 import './Home.css';
 import ptsdoverview from "../assets/ptsd-overview.png";
 import availability from "../assets/icons/availabilty_icon.png";
@@ -9,10 +9,25 @@ import guidance from "../assets/icons/resource_guidance_icon.png";
 import confidential from "../assets/icons/confidential_icon.png";
 
 function Home() {
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate(); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in by looking for the token
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token);
+  }, []);
 
   const handleLoginClick = () => {
-    navigate('/login'); // Redirect to the login page
+    navigate('/login'); 
+  };
+
+  const handleLogoutClick = () => {
+    // Clear token and update state
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    // Optionally redirect to home page
+    navigate('/');
   };
 
   return (
@@ -29,7 +44,11 @@ function Home() {
         </div>
         <div className="butt">  
           <div className="buttons">
-            <button className="btn" onClick={handleLoginClick}>LOGIN</button> {/* Link button to login */}
+            {!isLoggedIn ? (
+              <button className="btn" onClick={handleLoginClick}>LOGIN</button>
+            ) : (
+              <button className="btn" onClick={handleLogoutClick}>LOGOUT</button>
+            )}
           </div>
         </div>    
       </div>

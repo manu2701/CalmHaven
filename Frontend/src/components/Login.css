@@ -52,6 +52,7 @@
   text-align: left;
 }
 
+.login-container input[type="text"],
 .login-container input[type="email"],
 .login-container input[type="password"] {
   padding: 10px;
@@ -66,6 +67,7 @@
   color: white;
 }
 
+.login-container input[type="text"]:focus,
 .login-container input[type="email"]:focus,
 .login-container input[type="password"]:focus {
   border-color: #66afe9;
@@ -73,6 +75,7 @@
   box-shadow: 0px 0px 8px rgba(102, 175, 233, 0.6);
 }
 
+.login-container input[type="text"]::placeholder,
 .login-container input[type="email"]::placeholder,
 .login-container input[type="password"]::placeholder {
   color: #aaa;
@@ -80,6 +83,7 @@
   font-size: 14px;
   opacity: 1; 
 }
+
 .login-container .error-message{
   color: red;
   font-size: small;

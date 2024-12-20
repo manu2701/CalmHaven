@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import Home from "./components/Home";
 import AboutPTSD from "./components/AboutPTSD";
@@ -14,14 +14,24 @@ import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import Survey from "./components/Survey";
 import Resources from "./components/Resources";
-
+import TodoList from "./components/TodoList";
 
 function App() {
   const location = useLocation();
   const isAuthPage = location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/survey";
 
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const username = "John Doe"; // Replace this with dynamic username if available
+
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      setIsLoggedIn(!!localStorage.getItem('token'));
+    };
+
+    window.addEventListener('storage', checkLoginStatus);
+    return () => window.removeEventListener('storage', checkLoginStatus);
+  }, []);
 
   const toggleProfileMenu = () => {
     setIsProfileOpen(!isProfileOpen);
@@ -46,7 +56,12 @@ function App() {
             <li><Link to="/consult">CONSULT</Link></li>
             <li><Link to="/stories">STORIES OF STRENGTH</Link></li>
             <li><Link to="/resources">RESOURCES</Link></li>
-            <li><Link to="/todo-list">TO-DO LIST</Link></li>
+            {isLoggedIn && (
+              <>
+                <li><Link to="/survey">SURVEY</Link></li>
+                <li><Link to="/todo-list">TO-DO LIST</Link></li>
+              </>
+            )}
             <li>
               <img src={profile_icon} alt="Profile Icon" className="profile-icon" onClick={toggleProfileMenu} />
               {isProfileOpen && (
@@ -70,7 +85,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/survey" element={<Survey />} />
-
+        <Route path="/todo-list" element={<TodoList />} />
       </Routes>
       
       {!isAuthPage && <Chatbot />}

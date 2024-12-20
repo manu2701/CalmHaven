@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const MONGODB_URL = 'mongodb://localhost:27017/calmhaven';
 const PORT = 8080;
 
+// JWT Configuration
+const JWT_SECRET_KEY = 'your-secret-key-123';
+
 // Gemini API Configuration - Use environment variable
 const GEMINI_API_KEY = 'AIzaSyAfJNEv2bB5r0cKbnION3nPlqu65ka_pWA';
 
@@ -20,8 +23,9 @@ const connectDB = async () => {
 
 // Export configuration
 module.exports = {
-    connectDB,
     MONGODB_URL,
+    PORT,
     GEMINI_API_KEY,
-    PORT
+    JWT_SECRET_KEY,
+    connectDB
 };
